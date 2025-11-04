@@ -1,3 +1,5 @@
+from collections.abc import ValuesView
+from pickle import INT
 import sqlite3
 
 
@@ -15,9 +17,14 @@ cursor.execute("""
                disponivel INTEGER)
                 """)
 
-INSERT INTO Livros (titulo, autor, ano, genero, disponivel) VALUES
-('A Sombra do Vento', 'Carlos Ruiz', 'Zafón', 2001, 'Mistério', 1),
-('1984', 'George Orwell',1949, 'Ficção Científica', 0)
-('O Senhor dos Anéis', 'J.R.R. Tolkien',1954, 'Fantasia', 1)
-('Dom Quixote', 'Miguel de Cervantes',1605, 'Romance', 1)
-('Cem Anos de Solidão', 'Gabriel García Márquez',1967, 'Realismo Mágico', 0);
+import sqlite3
+con = sqlite3.connect("Livros.db")
+cur = con.cursor()
+
+livros = [
+    ('A Sombra do Vento', 'Carlos Ruiz', 'Zafón', 2001, 'Mistério', 1),
+    ('1984', 'George Orwell',1949, 'Ficção Científica', 0),
+    ('O Senhor dos Anéis', 'J.R.R. Tolkien',1954, 'Fantasia', 1),
+    ('Dom Quixote', 'Miguel de Cervantes',1605, 'Romance', 1),
+    ('Cem Anos de Solidão', 'Gabriel García Márquez',1967, 'Realismo Mágico', 0)
+]
